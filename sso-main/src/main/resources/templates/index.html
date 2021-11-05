@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>系统A</title>
+</head>
+<body>
+<h1>这是系统main 欢迎来到首页</h1>
+<span>
+    <a th:if="${session.loginUser==null}" href="http://www.ssosys.com:9000/view/login?target=http://A.ssosys.com:9010/view/index">登录</a>
+    <a th:unless="${session.loginUser==null}" href="http://www.ssosys.com:9000/login/logout?target=http://A.ssosys.com:9010/view/index">退出</a>
+</span>
+<p th:unless="${session.loginUser==null}">
+    <span style="color:red;" th:text="${session.loginUser.username}"></span> 已登录
+</p>
+</body>
+</html>
